@@ -24,18 +24,19 @@ if not defined interface_name (
 REM Prompt the user to choose an option
 echo DNS options:
 echo 1. Set Shecan DNS
-echo 2. Set Custom DNS
-echo 3. Clear DNS
-set /p dns_choice=Enter your choice (1, 2, or 3): 
+echo 2. Clear DNS
+REM echo 3. Set Custom DNS
+
+set /p dns_choice=Enter your choice (1, 2): 
 
 REM Set the DNS based on the user's choice
 if "%dns_choice%"=="1" (
     netsh interface ip set dns name="%interface_name%" static 178.22.122.100 primary validate=no
     netsh interface ip add dns name="%interface_name%" 185.51.200.2 index=2 validate=no
-) else if "%dns_choice%"=="2" (
-    set /p dns_servers=Enter the DNS servers separated by spaces: 
-    netsh interface ip set dns name="%interface_name%" static %dns_servers% primary validate=no
 ) else if "%dns_choice%"=="3" (
+    netsh interface ip set dns name="%interface_name%" static 4.2.2.4 primary validate=no
+    netsh interface ip add dns name="%interface_name%" 8.8.8.8 index=2 validate=no
+) else if "%dns_choice%"=="2" (
     netsh interface ip set dns name="%interface_name%" source=dhcp
 ) else (
     echo Invalid choice. Exiting.
