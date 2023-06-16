@@ -12,7 +12,7 @@ chmod +x ChangeDNS-Mac.command
 - Double-click the file to use it.
 
 ### Windows
-- Download the [ChangeDNS-Windows.bat](https://github.com/Behnamjef/ChangeDNS/blob/main/ChangeDNS-Windows.Bat).
+- Download the [ChangeDNS-Windows.bat](https://github.com/Behnamjef/ChangeDNS/blob/main/ChangeDNS-Windows.bat).
 - Right-click on the "ChangeDNS-Windows.bat" file.
 - From the context menu, select "Run As Administrator".
 
