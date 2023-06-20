@@ -49,6 +49,9 @@ if not defined interface_name (
 )
 
 :OptionsMenu
+REM Display a line divider
+echo ------------------------------------------
+
 REM Prompt the user to choose an option
 echo DNS options:
 echo 1. Set Shecan DNS
@@ -56,9 +59,10 @@ echo 2. Set Begzar DNS
 echo 3. Set Electro DNS
 echo 4. Set 403 DNS
 echo 5. Clear DNS
-echo 6. Exit
+echo 6. Show Current DNS
+echo 7. Exit
 
-set /p dns_choice=Enter your choice (1-6): 
+set /p dns_choice=Enter your choice (1-7): 
 
 REM Set the DNS based on the user's choice
 if "%dns_choice%"=="1" (
@@ -86,6 +90,10 @@ if "%dns_choice%"=="1" (
     echo DNS settings cleared successfully.
     goto :OptionsMenu
 ) else if "%dns_choice%"=="6" (
+    echo Current DNS settings:
+    ipconfig /all | findstr /R "DNS Servers"
+    goto :OptionsMenu
+) else if "%dns_choice%"=="7" (
     echo Exiting.
 ) else (
     echo Invalid choice. Please try again.
