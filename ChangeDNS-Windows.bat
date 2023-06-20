@@ -24,8 +24,10 @@ if not defined interface_name (
 REM Prompt the user to choose an option
 echo DNS options:
 echo 1. Set Shecan DNS
-echo 2. Clear DNS
-REM echo 3. Set Custom DNS
+echo 2. Set Begzar DNS
+echo 3. Set Electro DNS
+echo 4. Set 403 DNS
+echo 5. Clear DNS
 
 set /p dns_choice=Enter your choice (1, 2): 
 
@@ -33,10 +35,16 @@ REM Set the DNS based on the user's choice
 if "%dns_choice%"=="1" (
     netsh interface ip set dns name="%interface_name%" static 178.22.122.100 primary validate=no
     netsh interface ip add dns name="%interface_name%" 185.51.200.2 index=2 validate=no
-) else if "%dns_choice%"=="3" (
-    netsh interface ip set dns name="%interface_name%" static 4.2.2.4 primary validate=no
-    netsh interface ip add dns name="%interface_name%" 8.8.8.8 index=2 validate=no
-) else if "%dns_choice%"=="2" (
+) else if "%dns_choice%"=="2" (    
+    netsh interface ip set dns name="%interface_name%" static 185.55.226.26 primary validate=no
+    netsh interface ip add dns name="%interface_name%" 185.55.225.25 index=2 validate=no
+) else if "%dns_choice%"=="3" (    
+    netsh interface ip set dns name="%interface_name%" static 78.157.42.101 primary validate=no
+    netsh interface ip add dns name="%interface_name%" 78.157.42.100 index=2 validate=no
+) else if "%dns_choice%"=="4" (    
+    netsh interface ip set dns name="%interface_name%" static 10.202.10.202 primary validate=no
+    netsh interface ip add dns name="%interface_name%" 10.202.10.102 index=2 validate=no
+) else if "%dns_choice%"=="5" (
     netsh interface ip set dns name="%interface_name%" source=dhcp
 ) else (
     echo Invalid choice. Exiting.
